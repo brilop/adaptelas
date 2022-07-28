@@ -1,0 +1,88 @@
+1 - Faça um programa que leia a idade e escreva se ele possui mais do que 18 anos ou não. 
+
+<?php
+
+    $idade = readline("Digite idade: ");
+    
+    verificaIdade($idade);
+    
+    function verificaIdade($i)
+    {
+        if($i < 18)
+        {
+            echo "Possui menos que 18 anos";
+        }
+        else
+        {
+            echo "Possui mais que 18 anos";
+        }
+    }
+
+
+?>
+
+4 - Faça um programa que leia um numero X, se X for igual ou menor do que 1 o programa deve encerrar,
+se o X for maior do que 1, ele deve ler um segundo número Y, e deve escrever o resultado de Y elevado a X.
+
+<?php
+
+    fscanf(STDIN, "%d", $x);
+    fscanf(STDIN, "%d", $y);
+    
+    verificaPotencia($x, $y);
+    
+    function verificaPotencia($x, $y)
+    {
+        if($x >= 1)
+        {
+            echo "Resultado: " . $y**$x;
+        }
+        else
+        {
+            echo "O primeiro numero deve ser maior que 1";
+        }
+    }
+    
+?>
+
+***************** ATIVIDADES EXTRAS *********************
+
+2 - Faça um programa igual ao do exercício 1 porém caso o número seja menor do que zero (negativo) 
+você deve converte-lo para positivo e prosseguir o programa com ele.
+
+<?php
+    
+    fscanf(STDIN, "%d", $numero);
+    
+    imprimePares($numero);
+    
+    function imprimePares($n)
+    {
+        $aux = abs($n);
+        
+        for($i = 0; $i <= $aux; $i++)
+        {
+            if($i%2 == 0)
+            {
+                echo $i . "\t";
+            }
+        }   
+    }
+?>
+
+3 - Faça um programa que leia um número N maior do que zero e que escreva 
+a "sequencia de Fibonacci" correspondente a esse número.
+
+<?php
+    
+    fscanf(STDIN, "%d", $n);
+    $anterior = 0; // primeiro termo e também auxilia na sequência.
+    $aux = 1; // variável responsável polo pontapé inicial na impressão da sequência.
+    
+    echo $anterior;  //impressão do primeiro termo
+    for($i = 0; $i < ($n - 1); $i++){   // O (n - 1) é utilizado para impressão do exato valor de N,
+        echo $aux;             // pois não descobri uma forma de fazer com o zero dentro do laço.
+        $aux = $aux + $anterior;
+        $anterior = $aux - $anterior;
+    }
+?>
